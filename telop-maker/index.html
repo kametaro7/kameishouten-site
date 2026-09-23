@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>テロップメーカー｜亀井商店合同会社</title>
+<meta name="description" content="動画の話し声を自動で文字起こしし、テロップを入れて書き出すmacOS用の無料ソフトウェア。処理はすべてMacの中で完結し、動画を外部へ送信しません。亀井商店合同会社が開発・公開しています。">
+<link rel="canonical" href="https://www.kameishouten.com/telop-maker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="亀井商店合同会社">
+<meta property="og:title" content="テロップメーカー｜亀井商店合同会社">
+<meta property="og:description" content="動画の話し声を自動で文字起こしし、テロップを入れて書き出すmacOS用の無料ソフトウェア。処理はすべてMacの中で完結します。">
+<meta property="og:url" content="https://www.kameishouten.com/telop-maker/">
+<meta property="og:image" content="https://www.kameishouten.com/img/telop.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1412" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-16.3 -8.8 32.6 32.6'%3E%3Cpath fill='%231F5A43' d='M0,-8.8 L7.621,-4.4 L7.621,4.4 L0,8.8 L-7.621,4.4 L-7.621,-4.4Z M-8.66,6.2 L-1.039,10.6 L-1.039,19.4 L-8.66,23.8 L-16.281,19.4 L-16.281,10.6Z M8.66,6.2 L16.281,10.6 L16.281,19.4 L8.66,23.8 L1.039,19.4 L1.039,10.6Z'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "テロップメーカー",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "macOS",
+  "softwareVersion": "1.0.0",
+  "downloadUrl": "https://www.kameishouten.com/telop-maker/telop-maker-1.0.0.zip",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "publisher": { "@type": "Organization", "name": "亀井商店合同会社", "url": "https://www.kameishouten.com/" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   テロップメーカー 配布ページ（配色・書体は本体サイトに合わせる）
+   ============================================================ */
+:root{
+  --bg:#FFFFFF; --bg-alt:#F3F6F4; --surface:#FFFFFF;
+  --ink:#1B211E; --ink-2:#4B5550; --ink-3:#77817C;
+  --rule:#DAE1DD; --rule-2:#E8EDEA;
+  --accent:#1F5A43; --accent-hover:#174636; --accent-ink:#FFFFFF; --accent-tint:#E6EFEA;
+  --kikko:#DFE8E3;
+  --live:#1C6E4C; --live-bg:#E2F1E8;
+  --foot-bg:#15221C; --foot-ink:#DCE6E0; --foot-ink-2:#9DB0A6; --foot-rule:#2A3A32;
+  --shadow:0 1px 2px rgba(20,34,28,.05),0 6px 20px rgba(20,34,28,.06);
+  --mincho:"BIZ UDPMincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --gothic:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --fs-h1:clamp(1.9rem,4vw,2.6rem);
+  --fs-h2:clamp(1.35rem,2.4vw,1.7rem);
+  --fs-sm:.875rem; --fs-xs:.75rem;
+  --wrap:900px; --pad:clamp(20px,5vw,48px);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0F1412; --bg-alt:#141B18; --surface:#18201D;
+    --ink:#E3EAE6; --ink-2:#A7B3AD; --ink-3:#7D8883;
+    --rule:#29342F; --rule-2:#1F2825;
+    --accent:#7CC3A1; --accent-hover:#96D2B5; --accent-ink:#0F1412; --accent-tint:#18342A;
+    --kikko:#1B2622;
+    --live:#86D3AE; --live-bg:#15352A;
+    --foot-bg:#0A0E0C; --foot-ink:#D5DFDA; --foot-ink-2:#8C9C94; --foot-rule:#1E2A25;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box;}
+html{color-scheme:light dark;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--gothic);line-height:1.9;letter-spacing:.02em;}
+img{max-width:100%;height:auto;display:block;}
+a{color:var(--accent);}
+a:hover{color:var(--accent-hover);}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad);}
+
+/* ヘッダー・フッター */
+.site-head{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);}
+.site-head__in{display:flex;align-items:center;gap:1.5rem;min-height:4.25rem;max-width:1120px;}
+.site-head .logo{margin-inline-end:auto;}
+.logo{display:inline-flex;align-items:center;gap:.65rem;color:var(--ink);text-decoration:none;}
+.logo__name{font-family:var(--mincho);font-weight:700;font-size:1.125rem;letter-spacing:.1em;line-height:1.2;white-space:nowrap;}
+.logo .mark{width:1.75rem;height:1.75rem;color:var(--accent);flex:none;display:block;}
+.gnav{display:flex;gap:.25rem;}
+.gnav a{display:block;padding:.45rem .85rem;border-radius:4px;color:var(--ink-2);text-decoration:none;font-size:var(--fs-sm);font-weight:700;letter-spacing:.08em;transition:background .15s,color .15s;}
+.gnav a:hover{background:var(--bg-alt);color:var(--ink);}
+.gnav a.is-contact{background:var(--accent);color:var(--accent-ink);margin-left:.4rem;}
+.gnav a.is-contact:hover{background:var(--accent-hover);color:var(--accent-ink);}
+.site-foot{background:var(--foot-bg);color:var(--foot-ink);margin-top:clamp(48px,7vw,80px);}
+.site-foot__in{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;justify-content:space-between;padding-block:clamp(32px,5vw,48px);max-width:1120px;}
+.site-foot .logo{color:var(--foot-ink);}
+.site-foot .logo .mark{color:var(--foot-ink);}
+.site-foot address{font-style:normal;font-size:var(--fs-xs);color:var(--foot-ink-2);margin-top:.6rem;line-height:1.9;}
+.fnav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:var(--fs-sm);align-items:flex-start;}
+.fnav a{color:var(--foot-ink-2);text-decoration:none;}
+.fnav a:hover{color:var(--foot-ink);}
+.copy{width:100%;border-top:1px solid var(--foot-rule);padding-top:1.2rem;margin:0;font-size:var(--fs-xs);color:var(--foot-ink-2);}
+
+/* 見出し */
+h1,h2,h3{font-family:var(--mincho);letter-spacing:.04em;line-height:1.5;}
+h1{font-size:var(--fs-h1);margin:0 0 .6rem;}
+h2{font-size:var(--fs-h2);margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);}
+h3{font-size:1.0625rem;margin:1.8rem 0 .5rem;}
+p{margin:0 0 1rem;}
+section{padding-block:clamp(28px,4.5vw,44px);}
+section + section{border-top:1px solid var(--rule-2);}
+
+/* 先頭 */
+.hero{padding-top:clamp(32px,5vw,56px);}
+.eyebrow{font-size:var(--fs-xs);letter-spacing:.18em;color:var(--ink-3);margin:0 0 .8rem;}
+.lead{color:var(--ink-2);margin-bottom:1.4rem;}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem;}
+.chip{display:inline-flex;align-items:center;gap:.45em;padding:.14em .75em;border-radius:999px;font-size:var(--fs-xs);font-weight:700;letter-spacing:.08em;line-height:1.7;white-space:nowrap;color:var(--live);background:var(--live-bg);}
+.chip::before{content:"";width:.55em;height:.55em;border-radius:50%;background:currentColor;flex:none;}
+.chip--plain{color:var(--ink-2);background:var(--bg-alt);}
+.chip--plain::before{display:none;}
+.dl{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:.85rem 1.6rem;border-radius:6px;box-shadow:var(--shadow);}
+.dl:hover{background:var(--accent-hover);color:var(--accent-ink);}
+.dl__sub{display:block;font-size:var(--fs-xs);font-weight:400;color:var(--ink-3);margin-top:.7rem;font-family:var(--mono);}
+.shot{margin-top:2rem;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--bg-alt);}
+.shot figcaption{font-size:var(--fs-xs);color:var(--ink-3);padding:.7rem 1rem;border-top:1px solid var(--rule);}
+
+/* 特長 */
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;padding:0;margin:0;list-style:none;}
+.feats li{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1.1rem 1.2rem;}
+.feats b{display:block;margin-bottom:.3rem;}
+.feats span{font-size:var(--fs-sm);color:var(--ink-2);}
+
+/* 手順 */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;}
+.steps > li{counter-increment:step;position:relative;padding:0 0 1.6rem 3rem;}
+.steps > li::before{content:counter(step);position:absolute;left:0;top:.15rem;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--accent-tint);color:var(--accent);font-family:var(--mono);font-weight:500;display:grid;place-items:center;font-size:.85rem;}
+.steps h3{margin:0 0 .4rem;font-family:var(--gothic);font-size:1rem;font-weight:700;}
+.steps p{margin-bottom:.6rem;}
+pre.code{position:relative;background:var(--bg-alt);border:1px solid var(--rule);border-radius:6px;padding:1rem 1.1rem;overflow-x:auto;font-family:var(--mono);font-size:.8rem;line-height:2;margin:.6rem 0 1rem;}
+pre.code code{white-space:pre;}
+.copybtn{position:absolute;top:.5rem;right:.5rem;font-family:var(--gothic);font-size:var(--fs-xs);border:1px solid var(--rule);background:var(--surface);color:var(--ink-2);border-radius:4px;padding:.25rem .6rem;cursor:pointer;}
+.copybtn:hover{border-color:var(--accent);color:var(--accent);}
+.note{font-size:var(--fs-xs);color:var(--ink-3);line-height:1.9;}
+.callout{background:var(--bg-alt);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:1rem 1.2rem;font-size:var(--fs-sm);color:var(--ink-2);}
+.callout b{color:var(--ink);}
+dl.spec{display:grid;grid-template-columns:auto 1fr;gap:.1rem 1.5rem;margin:0;font-size:var(--fs-sm);}
+dl.spec dt{color:var(--ink-3);}
+dl.spec dd{margin:0 0 .5rem;}
+details.qa{border-top:1px solid var(--rule-2);padding:.9rem 0;}
+details.qa summary{cursor:pointer;font-weight:700;}
+details.qa p{margin:.7rem 0 0;font-size:var(--fs-sm);color:var(--ink-2);}
+details.qa code{font-family:var(--mono);font-size:.78rem;background:var(--bg-alt);border:1px solid var(--rule);border-radius:3px;padding:.1em .4em;}
+@media (max-width:720px){
+  .site-head__in{flex-wrap:wrap;gap:.25rem;padding-block:.75rem .5rem;}
+  .site-head .logo{width:100%;}
+  .gnav{width:calc(100% + 1.7rem);justify-content:space-between;margin-inline:-.85rem;}
+  .gnav a.is-contact{margin-left:0;}
+}
+@media (max-width:600px){
+  .steps > li{padding-left:2.4rem;}
+  pre.code{font-size:.72rem;}
+}
+@media (max-width:480px){
+  .gnav a{font-size:.8125rem;padding-inline:.6rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap site-head__in">
+    <a class="logo" href="/">
+      <svg class="mark" viewBox="-16.3 -8.8 32.6 32.6" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0,-8.8 L7.621,-4.4 L7.621,4.4 L0,8.8 L-7.621,4.4 L-7.621,-4.4Z M-8.66,6.2 L-1.039,10.6 L-1.039,19.4 L-8.66,23.8 L-16.281,19.4 L-16.281,10.6Z M8.66,6.2 L16.281,10.6 L16.281,19.4 L8.66,23.8 L1.039,19.4 L1.039,10.6Z"/></svg>
+      <span class="logo__name">亀井商店合同会社</span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <a href="/#business">事業内容</a>
+      <a href="/#company">会社概要</a>
+      <a href="/#contact" class="is-contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <p class="eyebrow">ソフトウェア</p>
+      <h1>テロップメーカー</h1>
+      <p class="lead">動画の話し声を自動で文字起こしし、テロップを入れて書き出す macOS 用のソフトウェアです。文字起こしから書き出しまで、すべてお使いの Mac の中で処理します。動画を外部のサーバーへ送信しません。</p>
+      <div class="chips">
+        <span class="chip">無料</span>
+        <span class="chip chip--plain">macOS 用</span>
+        <span class="chip chip--plain">登録不要</span>
+        <span class="chip chip--plain">日本語の音声に対応</span>
+      </div>
+      <a class="dl" href="telop-maker-1.0.0.zip" download>
+        テロップメーカーをダウンロード
+      </a>
+      <span class="dl__sub">telop-maker-1.0.0.zip / 71KB / 2026年9月23日公開</span>
+
+      <figure class="shot">
+        <img src="/img/telop.jpg" width="1920" height="1084" alt="テロップメーカーの編集画面。左に動画のプレビューとテロップ、右にテロップの一覧、下に波形のタイムラインが並んでいる。" decoding="async">
+        <figcaption>編集画面。文字起こしした結果が一覧に並び、動画を見ながら文言やタイミングを直せます。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>できること</h2>
+      <ul class="feats">
+        <li><b>話し声を自動で文字起こし</b><span>話している区間を検出し、その区間に合わせてテロップを割り付けます。</span></li>
+        <li><b>画面で直せる</b><span>文言・表示時間・区切りを、動画を再生しながら調整できます。聞き取りがあいまいな箇所には印が付きます。</span></li>
+        <li><b>見た目を選べる</b><span>YouTube字幕風・バラエティ風・黒帯など6種類。書体・大きさ・色・フチ・位置も変えられます。</span></li>
+        <li><b>書き出し</b><span>テロップを焼き込んだ動画（MP4）と、字幕ファイル（SRT）を書き出せます。4K・HDR・縦向きの動画にも対応します。</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>動作環境</h2>
+      <dl class="spec">
+        <dt>OS</dt><dd>macOS（Apple シリコン搭載の Mac で動作を確認しています）</dd>
+        <dt>必要なソフト</dt><dd>Homebrew、Node.js 20 以上、ffmpeg-full、whisper.cpp（下の手順でまとめて導入できます）</dd>
+        <dt>空き容量</dt><dd>音声認識用のデータに約 1.7GB。加えて、取り込む動画と同じくらいの空き容量</dd>
+        <dt>ネット接続</dt><dd>準備のときだけ必要です。使うときは不要です</dd>
+        <dt>料金</dt><dd>無料</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>使いはじめるまで</h2>
+      <p class="lead">はじめの 1 と 2 は最初の一度だけです。次からは 4 の起動だけで使えます。</p>
+      <ol class="steps">
+        <li>
+          <h3>必要なソフトを入れる</h3>
+          <p>「ターミナル」を開いて、次の 1 行を貼り付けて実行します（数分かかります）。</p>
+          <pre class="code"><code>brew install node ffmpeg-full whisper-cpp</code></pre>
+          <p class="note">Homebrew を入れていない場合は、先に <a href="https://brew.sh/index_ja" target="_blank" rel="noopener">Homebrew の公式サイト</a>の手順で導入してください。</p>
+        </li>
+        <li>
+          <h3>音声認識用のデータを入れる</h3>
+          <p>同じくターミナルで実行します。合計約 1.7GB をダウンロードします。</p>
+          <pre class="code"><code>mkdir -p ~/whisper-models
+curl -L -o ~/whisper-models/ggml-large-v3-turbo.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo.bin
+curl -L -o ~/whisper-models/ggml-silero-v5.1.2.bin https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v5.1.2.bin</code></pre>
+        </li>
+        <li>
+          <h3>アプリをダウンロードして置く</h3>
+          <p>上のボタンから ZIP をダウンロードし、ダブルクリックで展開します。出てきた <code>telop-maker</code> フォルダは、書類フォルダなど好きな場所に置いてください。</p>
+          <p>インターネットからダウンロードしたファイルは macOS が実行を止めるため、ターミナルで次を実行して制限を外します（フォルダの場所に合わせて書き換えてください）。</p>
+          <pre class="code"><code>xattr -dr com.apple.quarantine ~/Downloads/telop-maker</code></pre>
+        </li>
+        <li>
+          <h3>起動する</h3>
+          <p>フォルダの中の <b>起動.command</b> をダブルクリックします。ターミナルが開いたあと、ブラウザにテロップメーカーの画面が表示されます（<code>http://127.0.0.1:8767/</code>）。</p>
+          <p class="note">終了するときは、開いているターミナルのウィンドウを閉じてください。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>使い方</h2>
+      <ol class="steps">
+        <li>
+          <h3>動画を入れる</h3>
+          <p>最初の画面に動画をドラッグ＆ドロップします。読み込みのあと、自動で文字起こしが始まります。10分の動画で1〜2分が目安です。</p>
+        </li>
+        <li>
+          <h3>テロップを直す</h3>
+          <p>右側の一覧で文言を直します。行をクリックするとその場面に移動し、下の波形では帯の端をドラッグして表示時間を変えられます。聞き取りがあいまいな行には「要確認」の印が付きます。同じ間違いが何度も出るときは「置換」でまとめて直せます。</p>
+        </li>
+        <li>
+          <h3>見た目を選ぶ</h3>
+          <p>「デザイン」タブでテロップの種類を選び、書体・大きさ・色・フチ・位置を調整します。「仕上がりを確認」を押すと、書き出したときと同じ見た目を静止画で確認できます。</p>
+        </li>
+        <li>
+          <h3>書き出す</h3>
+          <p>「書き出し」タブで、テロップを焼き込んだ動画（MP4）または字幕ファイル（SRT）を書き出します。書き出したファイルはアプリ内の「書き出し」フォルダに保存され、画面のボタンから Finder で開けます。</p>
+        </li>
+      </ol>
+      <p class="callout"><b>動画は Mac の外に出ません。</b>文字起こしも書き出しも、すべてお使いの Mac の中で処理します。アプリが通信するのは、準備のときに音声認識用のデータをダウンロードするときだけです。</p>
+    </section>
+
+    <section>
+      <h2>困ったときは</h2>
+      <details class="qa">
+        <summary>最初の画面に「必要なものが見つかりません」と出る</summary>
+        <p>「使いはじめるまで」の 1 と 2 が終わっているかご確認ください。画面には足りないものの名前が表示されます。</p>
+      </details>
+      <details class="qa">
+        <summary>起動.command をダブルクリックしても開かない</summary>
+        <p>ダウンロードしたファイルに macOS の制限が付いたままの可能性があります。手順 3 の <code>xattr -dr com.apple.quarantine …</code> を実行してください。それでも開かないときは、ファイルを右クリックして「開く」を選んでください。</p>
+      </details>
+      <details class="qa">
+        <summary>ほかのアプリで使っていた ffmpeg が動かなくなった</summary>
+        <p>ffmpeg-full を入れると、関連するライブラリが更新されて通常の <code>ffmpeg</code> が起動しなくなることがあります。ターミナルで <code>brew upgrade ffmpeg</code> を実行すると直ります。</p>
+      </details>
+      <details class="qa">
+        <summary>聞き取れていない言葉がある</summary>
+        <p>音量が小さい動画や、BGM に重なった小声は取りこぼすことがあります。テロップは手で追加・修正できます。固有名詞など毎回同じ間違いが出る場合は、「置換」で直したうえで辞書に登録すると、次回から自動で直ります。</p>
+      </details>
+      <details class="qa">
+        <summary>取り込んだ動画はどこに保存される？</summary>
+        <p>アプリ内の <code>data</code> フォルダに取り込んだ動画の複製が保存されます。動画と同じくらいの空き容量を使うため、不要になったものは一覧の「削除」で消してください。</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>ご利用にあたって</h2>
+      <p class="note">
+        本ソフトウェアは無料で提供しています。ご利用は自己責任でお願いいたします。当社は、本ソフトウェアの使用によって生じた損害について責任を負いかねます。動作環境や動画の内容によっては、音声認識の結果が正しくない場合があります。書き出した動画や字幕の内容、および取り扱う動画の権利関係については、利用者の責任においてご確認ください。<br>
+        ご質問・ご要望は、<a href="/#contact">会社概要の連絡先</a>までお願いいたします。
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__in">
+    <div>
+      <a class="logo" href="/">
+        <svg class="mark" viewBox="-16.3 -8.8 32.6 32.6" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0,-8.8 L7.621,-4.4 L7.621,4.4 L0,8.8 L-7.621,4.4 L-7.621,-4.4Z M-8.66,6.2 L-1.039,10.6 L-1.039,19.4 L-8.66,23.8 L-16.281,19.4 L-16.281,10.6Z M8.66,6.2 L16.281,10.6 L16.281,19.4 L8.66,23.8 L1.039,19.4 L1.039,10.6Z"/></svg>
+        <span class="logo__name">亀井商店合同会社</span>
+      </a>
+      <address>〒150-0043 東京都渋谷区道玄坂1丁目10番8号<br>渋谷道玄坂東急ビル2F-C</address>
+    </div>
+    <nav class="fnav" aria-label="フッターメニュー">
+      <a href="/#business">事業内容</a>
+      <a href="/#company">会社概要</a>
+      <a href="/#contact">お問い合わせ</a>
+      <a href="/#privacy">プライバシーポリシー</a>
+    </nav>
+    <p class="copy">© 亀井商店合同会社</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  // コマンドをコピーするボタン
+  document.querySelectorAll("pre.code").forEach(function (pre) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copybtn";
+    btn.textContent = "コピー";
+    btn.addEventListener("click", function () {
+      navigator.clipboard.writeText(pre.querySelector("code").textContent).then(function () {
+        btn.textContent = "コピーしました";
+        setTimeout(function () { btn.textContent = "コピー"; }, 1600);
+      });
+    });
+    pre.appendChild(btn);
+  });
+})();
+</script>
+</body>
+</html>
