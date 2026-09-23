@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Live Cam Map</title>
+<meta name="description" content="Tens of thousands of YouTube live cameras from around the world on one map. Watch 4, 9 or 16 at once, or shuffle them all at random.">
+<meta name="theme-color" content="#0f1115">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23e5322d'/%3E%3Cpath d='M16 4a12 12 0 1 0 .01 0M4 16h24M16 4c-4 4-4 20 0 24M16 4c4 4 4 20 0 24' stroke='white' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.24.0/maplibre-gl.css">
+<link rel="stylesheet" href="assets/style.css?v=2">
+</head>
+<body>
+
+<header id="topbar">
+  <button id="btn-list" class="icon-btn" data-i18n-title="list.toggle" aria-controls="sidebar">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  </button>
+  <a class="brand" href="./">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-text" data-i18n="app.name">World Live Cam Map</span>
+  </a>
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" class="search-ico" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="search" type="search" autocomplete="off" spellcheck="false" data-i18n-placeholder="search.placeholder" data-i18n-aria="search.placeholder">
+  </div>
+  <div class="top-actions">
+    <button id="btn-random" class="pill-btn dark" data-i18n-title="random.tip"><span aria-hidden="true">🎲</span><span class="lbl" data-i18n="random">Random</span></button>
+    <button id="btn-multi" class="pill-btn dark" data-i18n-title="multi.tip"><span aria-hidden="true">⊞</span><span class="lbl" data-i18n="multi">Multi-view</span><span id="multi-count" class="multi-count" hidden></span></button>
+    <div class="lang-wrap">
+      <button id="btn-lang" class="pill-btn dark" aria-haspopup="listbox" aria-expanded="false" data-i18n-title="lang.tip"><span aria-hidden="true">🌐</span><span id="lang-label" class="lbl">English</span></button>
+      <div id="lang-menu" class="lang-menu" role="listbox" hidden></div>
+    </div>
+  </div>
+  <span id="count-badge" class="count-badge"></span>
+</header>
+
+<div id="filter-bar" class="filter-bar">
+  <select id="country-select" class="country-select" data-i18n-aria="filter.country"></select>
+  <div id="cat-bar" class="cat-bar" role="toolbar" data-i18n-aria="filter.category"></div>
+</div>
+
+<div id="app">
+  <aside id="sidebar" data-i18n-aria="list.title">
+    <div class="sidebar-head">
+      <strong data-i18n="list.title">Cameras</strong>
+      <span id="list-count" class="muted"></span>
+      <div id="list-scope" class="seg" role="tablist">
+        <button data-scope="view" class="active" data-i18n="list.inView">In view</button>
+        <button data-scope="all" data-i18n="list.all">All</button>
+      </div>
+      <button id="btn-close-list" class="icon-btn" data-i18n-aria="close">✕</button>
+    </div>
+    <div id="multi-pick-hint" class="pick-hint" hidden></div>
+    <div id="cam-list" class="cam-list" tabindex="0"><div id="cam-list-inner"></div></div>
+  </aside>
+
+  <div id="map" role="application" data-i18n-aria="map"></div>
+
+  <div id="loading" class="loading">
+    <div class="spinner" aria-hidden="true"></div>
+    <div id="loading-text">Loading cameras…</div>
+  </div>
+
+  <section id="multi" hidden>
+    <div class="multi-head">
+      <strong class="multi-title"><span aria-hidden="true">⊞</span> <span data-i18n="multi">Multi-view</span></strong>
+      <div id="layout-seg" class="seg dark" role="radiogroup" data-i18n-aria="multi.layout"></div>
+      <button id="multi-random" class="pill-btn" data-i18n-title="multi.randomTip"><span aria-hidden="true">🎲</span><span data-i18n="multi.randomAll">Shuffle all</span></button>
+      <label class="auto-wrap"><span data-i18n="auto">Auto shuffle</span><select id="multi-auto" class="auto-select"></select></label>
+      <span class="multi-spacer"></span>
+      <button id="multi-share" class="pill-btn ghost-dark" data-i18n-title="share"><span aria-hidden="true">🔗</span><span class="lbl" data-i18n="share">Copy link</span></button>
+      <button id="multi-clear" class="pill-btn ghost-dark" data-i18n="multi.clear">Clear</button>
+      <button id="multi-close" class="pill-btn light" data-i18n="multi.close">Back to map</button>
+    </div>
+    <div id="multi-progress" class="auto-progress" hidden><i></i></div>
+    <div id="multi-grid" class="multi-grid"></div>
+  </section>
+
+  <section id="panel" aria-live="polite">
+    <div class="panel-drag" aria-hidden="true"></div>
+    <div class="panel-head">
+      <div class="panel-titles">
+        <span id="panel-cat" class="cat-chip"></span>
+        <h2 id="panel-name" dir="auto">—</h2>
+        <div id="panel-place" class="muted" dir="auto"></div>
+      </div>
+      <button id="btn-close-panel" class="icon-btn" data-i18n-aria="close">✕</button>
+    </div>
+    <div class="player-wrap">
+      <div id="player"></div>
+      <div id="player-note" class="player-note" hidden></div>
+    </div>
+    <div id="panel-progress" class="auto-progress light" hidden><i></i></div>
+    <div class="panel-actions">
+      <button id="btn-next" class="pill-btn"><span aria-hidden="true">🎲</span><span data-i18n="random.next">Next random</span></button>
+      <label class="auto-wrap light"><span data-i18n="auto">Auto shuffle</span><select id="panel-auto" class="auto-select"></select></label>
+      <button id="btn-add-multi" class="pill-btn ghost"><span aria-hidden="true">⊞</span><span data-i18n="multi.add">Add to multi-view</span></button>
+      <a id="link-youtube" class="pill-btn ghost" target="_blank" rel="noopener"><span aria-hidden="true">▶</span><span data-i18n="openYoutube">Open on YouTube</span></a>
+      <a id="link-channel" class="pill-btn ghost" target="_blank" rel="noopener" data-i18n="channel">Channel</a>
+      <button id="btn-share" class="pill-btn ghost"><span aria-hidden="true">🔗</span><span data-i18n="share">Copy link</span></button>
+    </div>
+    <p id="panel-title" class="panel-orig muted" dir="auto"></p>
+    <div class="nearby">
+      <h3 data-i18n="nearby">Nearby cameras</h3>
+      <div id="nearby-list" class="nearby-list"></div>
+    </div>
+    <p id="panel-foot" class="panel-foot muted"></p>
+  </section>
+</div>
+
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.24.0/maplibre-gl.js"></script>
+<script src="assets/i18n/en.js?v=2"></script>
+<script src="assets/app.js?v=2"></script>
+<!-- Cloudflare Web Analytics（Cookie を使わないアクセス解析。"spa": false = カメラを開くたびの URL 変更は閲覧数に数えない） -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "efcc1db2ce1f43d9bb0521f2fc57a4b0", "spa": false}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
