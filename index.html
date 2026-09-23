@@ -20,7 +20,6 @@
   "@type": "Organization",
   "name": "亀井商店合同会社",
   "url": "https://www.kameishouten.com/",
-  "email": "kamei@kameishouten.com",
   "foundingDate": "2023-07-28",
   "founder": { "@type": "Person", "name": "亀井 新太郎" },
   "address": {
@@ -159,11 +158,6 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 .hero h1{font-family:var(--mincho);font-weight:700;font-size:var(--fs-h1);line-height:1.5;letter-spacing:.06em;text-wrap:balance;}
 .hero__lead{color:var(--ink-2);max-width:34em;}
 .hero__lead strong{color:var(--ink);font-weight:700;}
-.hero__facts{display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;padding-top:1.25rem;border-top:1px solid var(--rule);font-size:var(--fs-sm);}
-.hero__facts div{display:flex;gap:.6rem;align-items:baseline;}
-.hero__facts dt{color:var(--ink-3);font-size:var(--fs-xs);letter-spacing:.12em;}
-.hero__facts dd{font-weight:700;}
-
 .biz-index{background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);}
 .biz-index__label{padding:1rem 1.4rem .75rem;font-size:var(--fs-xs);letter-spacing:.16em;color:var(--ink-3);font-weight:700;border-bottom:1px solid var(--rule-2);}
 .biz-index a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1rem;align-items:center;padding:1.05rem 1.4rem;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--rule-2);transition:background .15s;}
@@ -224,13 +218,14 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 .note{font-size:var(--fs-xs);color:var(--ink-3);line-height:1.8;letter-spacing:.04em;}
 
 /* Webアプリのカード */
-.apps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px);}
-.app{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden;transition:box-shadow .2s,border-color .2s;}
+.apps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(16px,2vw,24px);}
+.app{grid-column:span 2;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden;transition:box-shadow .2s,border-color .2s;}
 .app:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 35%,var(--rule));}
 .app__shot{display:block;aspect-ratio:16 / 10;overflow:hidden;background:var(--bg-alt);border-bottom:1px solid var(--rule);}
 .app__shot img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s cubic-bezier(.2,.7,.3,1);}
 .app__shot--top img{object-position:top left;}
 .app:hover .app__shot img{transform:scale(1.025);}
+.app--wide{grid-column:span 3;}
 .app__body{display:flex;flex-direction:column;gap:.85rem;padding:1.25rem 1.3rem 1.35rem;flex:1;}
 .app__head{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;}
 .app__name{font-size:var(--fs-h4);font-weight:700;line-height:1.55;letter-spacing:.03em;}
@@ -243,6 +238,7 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 .stats dd span{font-size:var(--fs-xs);font-weight:700;margin-left:.15em;color:var(--ink-2);}
 .url{display:inline;font-family:var(--mono);font-size:.72rem;letter-spacing:0;overflow-wrap:anywhere;line-height:1.7;}
 .url::after{content:"↗";font-family:var(--gothic);margin-left:.35em;}
+.url .nw{white-space:nowrap;}
 .apps-note{margin-top:1rem;}
 
 /* ソフトウェア：処理の流れ（実際の手順なので番号つき） */
@@ -254,9 +250,11 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 .flow span{display:block;font-size:var(--fs-xs);color:var(--ink-2);line-height:1.75;margin-top:.2rem;}
 
 /* ---------- 会社概要 ---------- */
-.profile{background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);}
+.profile{background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);overflow:hidden;}
 .profile > div{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:.5rem clamp(16px,3vw,40px);padding:1.15rem clamp(20px,3vw,32px);border-bottom:1px solid var(--rule-2);}
 .profile > div:last-child{border-bottom:0;}
+.profile > div:target{animation:hl 2.4s ease-out;}
+@keyframes hl{from{background:var(--accent-tint);}to{background:transparent;}}
 .profile dt{font-weight:700;color:var(--ink-2);letter-spacing:.14em;font-size:.9375rem;}
 .profile dd{line-height:1.85;}
 .profile dd ul{display:grid;gap:.15rem;}
@@ -265,21 +263,9 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 .profile .title{color:var(--ink-3);font-size:var(--fs-sm);margin-right:.7em;letter-spacing:.08em;}
 
 /* ---------- お問い合わせ ---------- */
-.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;}
-.contact .sec-head{margin-bottom:0;}
-.mailbox{display:grid;gap:1rem;padding:clamp(22px,3vw,32px);background:var(--surface);border:1px solid var(--rule);border-radius:6px;}
-.mailbox__label{font-size:var(--fs-xs);letter-spacing:.16em;color:var(--ink-3);font-weight:700;}
-.mailbox__addr{font-family:var(--mono);font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:500;letter-spacing:0;word-break:break-all;line-height:1.5;}
-.mailbox__addr a{text-decoration:none;}
-.mailbox__addr a:hover{text-decoration:underline;}
-.mailbox__actions{display:flex;flex-wrap:wrap;gap:.6rem;}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.7em 1.35em;border-radius:4px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-size:var(--fs-sm);font-weight:700;letter-spacing:.08em;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
-.btn:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:var(--accent-ink);}
-.btn--ghost{background:transparent;color:var(--accent);}
-.btn--ghost:hover{background:var(--accent-tint);color:var(--accent);border-color:var(--accent);}
 
 /* ---------- プライバシーポリシー ---------- */
-.policy{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.policy{margin-top:clamp(36px,5vw,56px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
 .policy summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-family:var(--mincho);font-weight:700;font-size:1.0625rem;letter-spacing:.08em;}
 .policy summary::-webkit-details-marker{display:none;}
 .policy summary::after{content:"＋";font-family:var(--gothic);color:var(--ink-3);}
@@ -303,6 +289,9 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 /* ---------- レスポンシブ ---------- */
 @media (max-width:980px){
   .apps{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .app,.app--wide{grid-column:span 1;}
+  .app--full{grid-column:1 / -1;flex-direction:row;}
+  .app--full .app__shot{width:50%;flex:none;border-bottom:0;border-right:1px solid var(--rule);}
   .flow{grid-template-columns:repeat(2,minmax(0,1fr));}
   .flow li:nth-child(2){border-right:0;}
   .flow li:nth-child(-n+2){border-bottom:1px solid var(--rule);}
@@ -312,7 +301,6 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
   .kikko{width:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 35%,#000 100%);mask-image:linear-gradient(to bottom,transparent 35%,#000 100%);}
   .seg__head,.item{grid-template-columns:minmax(0,1fr);}
   .item__head{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;}
-  .contact{grid-template-columns:minmax(0,1fr);}
   .policy__body{grid-template-columns:minmax(0,1fr);}
 }
 @media (max-width:720px){
@@ -324,6 +312,8 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
   .gnav a{padding:.45rem .85rem;}
   .gnav a.is-contact{margin-left:0;}
   .apps{grid-template-columns:minmax(0,1fr);}
+  .app--full{flex-direction:column;}
+  .app--full .app__shot{width:auto;border-right:0;border-bottom:1px solid var(--rule);}
   .profile > div{grid-template-columns:minmax(0,1fr);gap:.2rem;}
   .site-foot__in{grid-template-columns:minmax(0,1fr);}
 }
@@ -376,11 +366,6 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
           亀井商店合同会社は、<strong>SNSを活用したマーケティング事業</strong>と、<strong>Webアプリケーション・ソフトウェアの企画・開発・運営</strong>をおこなう会社です。
           商品レビューの信頼性、いま世界で起きている風景、企業のメール基盤、動画の中の言葉。見えにくい情報を、誰にでもわかるかたちにして届けています。
         </p>
-        <dl class="hero__facts">
-          <div><dt>設立</dt><dd class="num">2023年7月</dd></div>
-          <div><dt>所在地</dt><dd>東京都渋谷区</dd></div>
-          <div><dt>代表社員</dt><dd>亀井 新太郎</dd></div>
-        </dl>
       </div>
 
       <nav class="biz-index" aria-label="事業の構成">
@@ -392,7 +377,7 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
         </a>
         <a href="#webapps">
           <span class="k">Webアプリサービス</span>
-          <span class="v">日本全国・世界のライブカメラマップ／メールサーバー判定ツール</span>
+          <span class="v">ライブカメラマップ（日本・世界）／全国釣り船マップ／日本の定期船航路マップ／メールサーバー判定ツール</span>
           <span class="arrow" aria-hidden="true">↓</span>
         </a>
         <a href="#software">
@@ -482,7 +467,7 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
         </div>
 
         <div class="apps">
-          <article class="app">
+          <article class="app app--wide">
             <a class="app__shot" href="https://kametaro7.github.io/japan-livecam-map/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="img/japan.jpg" width="960" height="698" alt="" decoding="async">
             </a>
@@ -492,15 +477,15 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
                 <span class="chip chip--live">公開中</span>
               </div>
               <p class="app__desc">全国のライブカメラ映像（YouTube配信）を地図にまとめ、その場で視聴できるWebアプリ。街・鉄道・空港・山・海などのカテゴリ検索や、複数カメラの同時表示に対応しています。</p>
+              <a class="url" href="https://kametaro7.github.io/japan-livecam-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr><span class="nw">japan-livecam-map</span></a>
               <dl class="stats">
                 <div><dt>対応地域</dt><dd>47<span>都道府県</span></dd></div>
                 <div><dt>掲載カメラ</dt><dd>1,065<span>台</span></dd></div>
               </dl>
-              <a class="url" href="https://kametaro7.github.io/japan-livecam-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr>japan-livecam-map</a>
             </div>
           </article>
 
-          <article class="app">
+          <article class="app app--wide">
             <a class="app__shot" href="https://kametaro7.github.io/world-livecam-map/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="img/world.jpg" width="960" height="702" alt="" decoding="async">
             </a>
@@ -510,16 +495,53 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
                 <span class="chip chip--live">公開中</span>
               </div>
               <p class="app__desc">世界各地のライブカメラを地図上で探して視聴できるWebアプリ。31言語の表示に対応し、複数画面の同時視聴やランダム再生の機能を備えています。</p>
+              <a class="url" href="https://kametaro7.github.io/world-livecam-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr><span class="nw">world-livecam-map</span></a>
               <dl class="stats">
                 <div><dt>対応国・地域</dt><dd>112<span>か国</span></dd></div>
                 <div><dt>掲載カメラ</dt><dd>6,519<span>台</span></dd></div>
                 <div><dt>表示言語</dt><dd>31<span>言語</span></dd></div>
               </dl>
-              <a class="url" href="https://kametaro7.github.io/world-livecam-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr>world-livecam-map</a>
             </div>
           </article>
 
           <article class="app">
+            <a class="app__shot" href="https://kametaro7.github.io/japan-fishing-boat-map/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/fishing.jpg" width="960" height="600" alt="" decoding="async">
+            </a>
+            <div class="app__body">
+              <div class="app__head">
+                <h4 class="app__name">全国釣り船マップ</h4>
+                <span class="chip chip--live">公開中</span>
+              </div>
+              <p class="app__desc">全国の釣り船・船宿・渡船を地図にまとめたWebアプリ。釣りたい魚や料金、地域で絞り込み、プランごとの料金・出船時刻や、公式サイト・予約ページへのリンクを確認できます。</p>
+              <a class="url" href="https://kametaro7.github.io/japan-fishing-boat-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr><span class="nw">japan-fishing-boat-map</span></a>
+              <dl class="stats">
+                <div><dt>掲載船宿</dt><dd>6,418<span>件</span></dd></div>
+                <div><dt>掲載プラン</dt><dd>48,421<span>件</span></dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="app">
+            <a class="app__shot" href="https://kametaro7.github.io/japan-ferry-map/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/ferry.jpg" width="960" height="600" alt="" decoding="async">
+            </a>
+            <div class="app__body">
+              <div class="app__head">
+                <h4 class="app__name">日本の定期船航路マップ</h4>
+                <span class="chip chip--live">公開中</span>
+              </div>
+              <p class="app__desc">フェリー・高速船・観光船から、湖や川の定期船、日本発着の国際航路まで、旅客が乗れる定期航路を地図にまとめたWebアプリ。夜行便やマイカー搭載の可否で絞り込み、各運航会社のサイトへ移動できます。</p>
+              <a class="url" href="https://kametaro7.github.io/japan-ferry-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr><span class="nw">japan-ferry-map</span></a>
+              <dl class="stats">
+                <div><dt>掲載航路</dt><dd>585<span>航路</span></dd></div>
+                <div><dt>運航事業者</dt><dd>422<span>社</span></dd></div>
+                <div><dt>国際航路</dt><dd>12<span>航路</span></dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="app app--full">
             <a class="app__shot app__shot--top" href="https://kametaro7.github.io/mx-scope/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="img/mx.jpg" width="960" height="600" alt="" decoding="async">
             </a>
@@ -529,15 +551,15 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
                 <span class="chip chip--live">公開中</span>
               </div>
               <p class="app__desc">ドメインやメールアドレスを入力するだけで、DNSの公開情報から利用中のメールサービス（Google Workspace、Microsoft 365 など）や、自社サーバー／クラウドの別を判定します。CSVによる一括判定に対応しています。</p>
+              <a class="url" href="https://kametaro7.github.io/mx-scope/" target="_blank" rel="noopener">kametaro7.github.io/<wbr><span class="nw">mx-scope</span></a>
               <dl class="stats">
                 <div><dt>判定できるサービス</dt><dd>117<span>種</span></dd></div>
                 <div><dt>一括判定</dt><dd>CSV<span>対応</span></dd></div>
               </dl>
-              <a class="url" href="https://kametaro7.github.io/mx-scope/" target="_blank" rel="noopener">kametaro7.github.io/<wbr>mx-scope</a>
             </div>
           </article>
         </div>
-        <p class="note apps-note">掲載台数・対応数は2026年9月時点。画面はいずれも実際のサービスのものです。</p>
+        <p class="note apps-note">掲載数は2026年9月時点。画面はいずれも実際のサービスのものです。</p>
       </section>
 
       <!-- ソフトウェア開発 -->
@@ -594,62 +616,42 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
             </ul>
           </dd>
         </div>
-        <div><dt>連絡先</dt><dd><a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></dd></div>
+        <div id="contact"><dt>連絡先</dt><dd><a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></dd></div>
       </dl>
+      <details class="policy" id="privacy">
+        <summary>プライバシーポリシー</summary>
+        <div class="policy__body">
+          <p>亀井商店合同会社（以下「当社」）は、お問い合わせ等を通じてお預かりする個人情報を、以下のとおり取り扱います。</p>
+          <div>
+            <h3>取得する情報</h3>
+            <p>お問い合わせのメールに記載された氏名、会社名、メールアドレス、お問い合わせ内容など、お客様ご自身が提供された情報。</p>
+          </div>
+          <div>
+            <h3>利用目的</h3>
+            <p>お問い合わせへの回答、お取引に関するご連絡、およびこれらに付随する業務のために利用し、それ以外の目的では利用しません。</p>
+          </div>
+          <div>
+            <h3>第三者への提供</h3>
+            <p>法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません。</p>
+          </div>
+          <div>
+            <h3>安全管理と保管</h3>
+            <p>取得した情報は適切に管理し、利用目的の達成に必要な期間を過ぎたものは速やかに削除します。</p>
+          </div>
+          <div>
+            <h3>開示・訂正・削除のご請求</h3>
+            <p>ご本人からのご請求に応じ、保有する個人情報の開示・訂正・利用停止・削除をおこないます。</p>
+          </div>
+          <div>
+            <h3>お問い合わせ窓口</h3>
+            <p>会社概要の<a href="#contact">連絡先</a>に記載のメールアドレスまでご連絡ください。</p>
+          </div>
+          <p class="note">2026年9月 制定</p>
+        </div>
+      </details>
     </div>
   </section>
 
-  <!-- ========== お問い合わせ ========== -->
-  <section class="section" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact">
-      <div class="sec-head">
-        <h2 id="contact-title">お問い合わせ</h2>
-        <p>事業内容・お取引・取材に関するお問い合わせは、右記のメールアドレスまでご連絡ください。内容を確認のうえ、担当者よりご返信いたします。</p>
-      </div>
-      <div class="mailbox">
-        <p class="mailbox__label">メールアドレス</p>
-        <p class="mailbox__addr" id="mail"><a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></p>
-        <div class="mailbox__actions">
-          <a class="btn" href="mailto:kamei@kameishouten.com">メールを作成する</a>
-          <button class="btn btn--ghost" type="button" data-copy="kamei@kameishouten.com">アドレスをコピー</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap" style="padding-bottom:clamp(48px,7vw,80px)">
-    <details class="policy" id="privacy">
-      <summary>プライバシーポリシー</summary>
-      <div class="policy__body">
-        <p>亀井商店合同会社（以下「当社」）は、お問い合わせ等を通じてお預かりする個人情報を、以下のとおり取り扱います。</p>
-        <div>
-          <h3>取得する情報</h3>
-          <p>お問い合わせのメールに記載された氏名、会社名、メールアドレス、お問い合わせ内容など、お客様ご自身が提供された情報。</p>
-        </div>
-        <div>
-          <h3>利用目的</h3>
-          <p>お問い合わせへの回答、お取引に関するご連絡、およびこれらに付随する業務のために利用し、それ以外の目的では利用しません。</p>
-        </div>
-        <div>
-          <h3>第三者への提供</h3>
-          <p>法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません。</p>
-        </div>
-        <div>
-          <h3>安全管理と保管</h3>
-          <p>取得した情報は適切に管理し、利用目的の達成に必要な期間を過ぎたものは速やかに削除します。</p>
-        </div>
-        <div>
-          <h3>開示・訂正・削除のご請求</h3>
-          <p>ご本人からのご請求に応じ、保有する個人情報の開示・訂正・利用停止・削除をおこないます。</p>
-        </div>
-        <div>
-          <h3>お問い合わせ窓口</h3>
-          <p>亀井商店合同会社　<a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></p>
-        </div>
-        <p class="note">2026年9月 制定</p>
-      </div>
-    </details>
-  </div>
 </main>
 
 <footer class="site-foot">
@@ -674,32 +676,6 @@ h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
 <script>
 (function () {
   "use strict";
-
-  // メールアドレスのコピー（クリップボードが使えない環境では文字を選択状態にする）
-  document.querySelectorAll("[data-copy]").forEach(function (btn) {
-    var label = btn.textContent;
-    btn.addEventListener("click", function () {
-      var text = btn.getAttribute("data-copy");
-      function done(msg) {
-        btn.textContent = msg;
-        setTimeout(function () { btn.textContent = label; }, 2400);
-      }
-      function selectFallback() {
-        var el = document.getElementById("mail");
-        var range = document.createRange();
-        range.selectNodeContents(el);
-        var sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-        done("選択しました（⌘C でコピー）");
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { done("コピーしました"); }, selectFallback);
-      } else {
-        selectFallback();
-      }
-    });
-  });
 
   // フッターのリンクからプライバシーポリシーへ来たときは開いた状態にする
   function openPolicy() {
