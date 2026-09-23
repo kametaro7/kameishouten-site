@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="亀井商店合同会社は、SNSを活用したマーケティング事業と、Webアプリケーション・ソフトウェアの企画・開発・運営をおこなう会社です。所在地：東京都渋谷区道玄坂。">
+<link rel="canonical" href="https://www.kameishouten.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="亀井商店合同会社">
+<meta property="og:title" content="亀井商店合同会社">
+<meta property="og:description" content="SNSを活用したマーケティング事業と、Webアプリケーション・ソフトウェアの企画・開発・運営。">
+<meta property="og:url" content="https://www.kameishouten.com/">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1412" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-16.3 -8.8 32.6 32.6'%3E%3Cpath fill='%231F5A43' d='M0,-8.8 L7.621,-4.4 L7.621,4.4 L0,8.8 L-7.621,4.4 L-7.621,-4.4Z M-8.66,6.2 L-1.039,10.6 L-1.039,19.4 L-8.66,23.8 L-16.281,19.4 L-16.281,10.6Z M8.66,6.2 L16.281,10.6 L16.281,19.4 L8.66,23.8 L1.039,19.4 L1.039,10.6Z'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "亀井商店合同会社",
+  "url": "https://www.kameishouten.com/",
+  "email": "kamei@kameishouten.com",
+  "foundingDate": "2023-07-28",
+  "founder": { "@type": "Person", "name": "亀井 新太郎" },
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "150-0043",
+    "addressRegion": "東京都",
+    "addressLocality": "渋谷区",
+    "streetAddress": "道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F-C",
+    "addressCountry": "JP"
+  }
+}
+</script>
+<style>html{color-scheme:light dark;}</style>
+</head>
+<body>
+<title>亀井商店合同会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   亀井商店合同会社
+   色  : 白 / 墨 / 千歳緑（アクセント）/ 状態色（公開中・準備中・開発中）
+   書体: BIZ UDP明朝（見出し）× BIZ UDPゴシック（本文）× IBM Plex Mono（URL）
+   意匠: 三つ盛亀甲（ロゴ）と亀甲の地紋
+   ============================================================ */
+:root{
+  --bg:#FFFFFF;
+  --bg-alt:#F3F6F4;
+  --surface:#FFFFFF;
+  --ink:#1B211E;
+  --ink-2:#4B5550;
+  --ink-3:#77817C;
+  --rule:#DAE1DD;
+  --rule-2:#E8EDEA;
+  --accent:#1F5A43;          /* 千歳緑 */
+  --accent-hover:#174636;
+  --accent-ink:#FFFFFF;
+  --accent-tint:#E6EFEA;
+  --kikko:#DFE8E3;
+  --live:#1C6E4C;  --live-bg:#E2F1E8;
+  --prep:#8A5A00;  --prep-bg:#FBF0D9;
+  --dev:#4F5B66;   --dev-bg:#ECEFF2;
+  --foot-bg:#15221C;
+  --foot-ink:#DCE6E0;
+  --foot-ink-2:#9DB0A6;
+  --foot-rule:#2A3A32;
+  --shadow:0 1px 2px rgba(20,34,28,.05),0 6px 20px rgba(20,34,28,.06);
+
+  --mincho:"BIZ UDPMincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --gothic:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --fs-h1:clamp(2rem,4.4vw,3rem);
+  --fs-h2:clamp(1.5rem,2.6vw,1.875rem);
+  --fs-h3:1.375rem;
+  --fs-h4:1.0625rem;
+  --fs-sm:.875rem;
+  --fs-xs:.75rem;
+
+  --wrap:1120px;
+  --pad:clamp(20px,5vw,48px);
+  --head-h:4.25rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1412; --bg-alt:#141B18; --surface:#18201D;
+    --ink:#E3EAE6; --ink-2:#A7B3AD; --ink-3:#7D8883;
+    --rule:#29342F; --rule-2:#1F2825;
+    --accent:#7CC3A1; --accent-hover:#96D2B5; --accent-ink:#0F1412; --accent-tint:#18342A;
+    --kikko:#1B2622;
+    --live:#86D3AE; --live-bg:#15352A;
+    --prep:#E6BD6A; --prep-bg:#372B12;
+    --dev:#AEB8C2;  --dev-bg:#232A31;
+    --foot-bg:#0A0E0C; --foot-ink:#D5DFDA; --foot-ink-2:#8C9C94; --foot-rule:#1E2A25;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1412; --bg-alt:#141B18; --surface:#18201D;
+  --ink:#E3EAE6; --ink-2:#A7B3AD; --ink-3:#7D8883;
+  --rule:#29342F; --rule-2:#1F2825;
+  --accent:#7CC3A1; --accent-hover:#96D2B5; --accent-ink:#0F1412; --accent-tint:#18342A;
+  --kikko:#1B2622;
+  --live:#86D3AE; --live-bg:#15352A;
+  --prep:#E6BD6A; --prep-bg:#372B12;
+  --dev:#AEB8C2;  --dev-bg:#232A31;
+  --foot-bg:#0A0E0C; --foot-ink:#D5DFDA; --foot-ink-2:#8C9C94; --foot-rule:#1E2A25;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.25);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 12px);}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--gothic);font-size:1rem;line-height:1.9;letter-spacing:.03em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4,p,dl,dd,ol,ul,figure{margin:0;}
+ol,ul{padding:0;list-style:none;}
+a{color:var(--accent);text-underline-offset:.24em;text-decoration-thickness:1px;}
+a:hover{color:var(--accent-hover);}
+img{display:block;max-width:100%;height:auto;}
+:where(a,button,summary):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px;}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad);}
+.num{font-variant-numeric:tabular-nums;}
+
+/* ---------- ロゴ（三つ盛亀甲） ---------- */
+.mark{width:1.75rem;height:1.75rem;color:var(--accent);flex:none;display:block;}
+.logo{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink);}
+.logo:hover{color:var(--ink);}
+.logo__name{font-family:var(--mincho);font-weight:700;font-size:1.125rem;letter-spacing:.1em;line-height:1.2;white-space:nowrap;}
+
+/* ---------- ヘッダー ---------- */
+.site-head{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule-2);}
+.site-head__in{display:flex;align-items:center;gap:1.5rem;min-height:var(--head-h);}
+.site-head .logo{margin-inline-end:auto;}
+.gnav{display:flex;gap:.25rem;}
+.gnav a{
+  display:block;padding:.45rem .85rem;border-radius:4px;
+  color:var(--ink-2);text-decoration:none;font-size:var(--fs-sm);font-weight:700;letter-spacing:.08em;
+  transition:background .15s,color .15s;
+}
+.gnav a:hover{background:var(--bg-alt);color:var(--ink);}
+.gnav a.is-contact{background:var(--accent);color:var(--accent-ink);margin-left:.4rem;}
+.gnav a.is-contact:hover{background:var(--accent-hover);color:var(--accent-ink);}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule-2);}
+.kikko{position:absolute;top:0;right:0;width:64%;height:100%;color:var(--kikko);pointer-events:none;
+  -webkit-mask-image:linear-gradient(to left,#000 30%,transparent 92%);mask-image:linear-gradient(to left,#000 30%,transparent 92%);}
+.hero__in{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding-block:clamp(56px,8vw,104px) clamp(48px,7vw,88px);}
+.hero__copy{display:flex;flex-direction:column;gap:1.5rem;}
+h1,h2,h3,h4,.biz-index .k,.flow b{word-break:auto-phrase;}
+.hero h1{font-family:var(--mincho);font-weight:700;font-size:var(--fs-h1);line-height:1.5;letter-spacing:.06em;text-wrap:balance;}
+.hero__lead{color:var(--ink-2);max-width:34em;}
+.hero__lead strong{color:var(--ink);font-weight:700;}
+.hero__facts{display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;padding-top:1.25rem;border-top:1px solid var(--rule);font-size:var(--fs-sm);}
+.hero__facts div{display:flex;gap:.6rem;align-items:baseline;}
+.hero__facts dt{color:var(--ink-3);font-size:var(--fs-xs);letter-spacing:.12em;}
+.hero__facts dd{font-weight:700;}
+
+.biz-index{background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);}
+.biz-index__label{padding:1rem 1.4rem .75rem;font-size:var(--fs-xs);letter-spacing:.16em;color:var(--ink-3);font-weight:700;border-bottom:1px solid var(--rule-2);}
+.biz-index a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1rem;align-items:center;padding:1.05rem 1.4rem;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--rule-2);transition:background .15s;}
+.biz-index a:last-child{border-bottom:0;border-radius:0 0 6px 6px;}
+.biz-index a:hover{background:var(--bg-alt);color:var(--ink);}
+.biz-index .k{font-family:var(--mincho);font-weight:700;font-size:1.0625rem;letter-spacing:.06em;}
+.biz-index .v{grid-column:1;font-size:var(--fs-sm);color:var(--ink-2);line-height:1.7;}
+.biz-index .arrow{grid-column:2;grid-row:1 / span 2;color:var(--accent);font-size:1.1rem;transition:transform .2s;}
+.biz-index a:hover .arrow{transform:translateY(2px);}
+
+/* ---------- セクション共通 ---------- */
+.section{padding-block:clamp(64px,9vw,112px);}
+.section--alt{background:var(--bg-alt);}
+.sec-head{display:grid;gap:.9rem;max-width:44rem;margin-bottom:clamp(36px,5vw,56px);}
+.sec-head h2{font-family:var(--mincho);font-weight:700;font-size:var(--fs-h2);letter-spacing:.08em;line-height:1.5;display:flex;align-items:center;gap:.8rem;}
+.sec-head h2::after{content:"";flex:1;height:1px;background:var(--rule);min-width:2rem;max-width:8rem;}
+.sec-head p{color:var(--ink-2);}
+
+/* ---------- 事業区分 ---------- */
+.seg{padding-block:clamp(36px,5vw,52px);border-top:1px solid var(--rule);}
+.seg:first-of-type{border-top:0;padding-top:0;}
+.seg__head{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:.6rem clamp(20px,4vw,48px);align-items:baseline;margin-bottom:clamp(24px,3vw,32px);}
+.seg__title{font-family:var(--mincho);font-weight:700;font-size:var(--fs-h3);letter-spacing:.08em;line-height:1.5;display:flex;align-items:center;gap:.6rem;}
+.seg__title::before{content:"";width:.66em;height:.76em;flex:none;background:var(--accent);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);}
+.seg__lead{color:var(--ink-2);}
+
+/* 行型の項目 */
+.items{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;}
+.item{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:.9rem clamp(20px,4vw,48px);padding:clamp(22px,3vw,30px) clamp(20px,3vw,32px);background:var(--surface);}
+.item__head{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;}
+.item__name{font-size:var(--fs-h4);font-weight:700;line-height:1.6;letter-spacing:.04em;}
+.item__body{display:grid;gap:.9rem;color:var(--ink-2);min-width:0;}
+.item__body > p{max-width:42em;}
+
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:var(--fs-sm);}
+.facts div{display:flex;gap:.7rem;align-items:baseline;}
+.facts dt{color:var(--ink-3);font-size:var(--fs-xs);letter-spacing:.1em;white-space:nowrap;}
+.facts dd{color:var(--ink);font-weight:700;}
+
+/* 状態の札（色＋形で区別） */
+.chip{display:inline-flex;align-items:center;gap:.45em;padding:.14em .75em;border-radius:999px;font-size:var(--fs-xs);font-weight:700;letter-spacing:.08em;line-height:1.7;white-space:nowrap;}
+.chip::before{content:"";width:.55em;height:.55em;border-radius:50%;background:currentColor;flex:none;}
+.chip--live{color:var(--live);background:var(--live-bg);}
+.chip--prep{color:var(--prep);background:var(--prep-bg);}
+.chip--prep::before{background:transparent;box-shadow:inset 0 0 0 1.6px currentColor;}
+.chip--dev{color:var(--dev);background:var(--dev-bg);}
+.chip--dev::before{border-radius:1px;height:.18em;width:.65em;}
+
+/* クチコミ分析サイトの一覧 */
+.sites-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;}
+.sites{width:100%;border-collapse:collapse;font-size:var(--fs-sm);min-width:30rem;}
+.sites th,.sites td{padding:.75rem 1rem;text-align:left;vertical-align:middle;border-bottom:1px solid var(--rule-2);}
+.sites tbody tr:last-child th,.sites tbody tr:last-child td{border-bottom:0;}
+.sites thead th{font-size:var(--fs-xs);letter-spacing:.12em;color:var(--ink-3);font-weight:700;background:var(--bg-alt);}
+.sites tbody th{color:var(--ink);font-weight:700;letter-spacing:.02em;white-space:nowrap;}
+.sites tbody th span{display:block;font-weight:400;font-size:var(--fs-xs);color:var(--ink-3);letter-spacing:.08em;}
+.sites td{color:var(--ink-2);}
+.note{font-size:var(--fs-xs);color:var(--ink-3);line-height:1.8;letter-spacing:.04em;}
+
+/* Webアプリのカード */
+.apps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px);}
+.app{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden;transition:box-shadow .2s,border-color .2s;}
+.app:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 35%,var(--rule));}
+.app__shot{display:block;aspect-ratio:16 / 10;overflow:hidden;background:var(--bg-alt);border-bottom:1px solid var(--rule);}
+.app__shot img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s cubic-bezier(.2,.7,.3,1);}
+.app__shot--top img{object-position:top left;}
+.app:hover .app__shot img{transform:scale(1.025);}
+.app__body{display:flex;flex-direction:column;gap:.85rem;padding:1.25rem 1.3rem 1.35rem;flex:1;}
+.app__head{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;}
+.app__name{font-size:var(--fs-h4);font-weight:700;line-height:1.55;letter-spacing:.03em;}
+.app__name small{display:block;font-size:var(--fs-xs);font-weight:400;color:var(--ink-3);letter-spacing:.08em;}
+.app__desc{font-size:var(--fs-sm);color:var(--ink-2);line-height:1.85;}
+.stats{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:auto;padding-top:.85rem;border-top:1px solid var(--rule-2);}
+.stats div{display:flex;flex-direction:column;}
+.stats dt{font-size:.6875rem;color:var(--ink-3);letter-spacing:.12em;}
+.stats dd{font-size:1.25rem;font-weight:700;line-height:1.35;font-variant-numeric:tabular-nums;letter-spacing:.01em;}
+.stats dd span{font-size:var(--fs-xs);font-weight:700;margin-left:.15em;color:var(--ink-2);}
+.url{display:inline;font-family:var(--mono);font-size:.72rem;letter-spacing:0;overflow-wrap:anywhere;line-height:1.7;}
+.url::after{content:"↗";font-family:var(--gothic);margin-left:.35em;}
+.apps-note{margin-top:1rem;}
+
+/* ソフトウェア：処理の流れ（実際の手順なので番号つき） */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:step;border:1px solid var(--rule);border-radius:4px;overflow:hidden;}
+.flow li{counter-increment:step;position:relative;padding:1rem 1.1rem 1.05rem;background:var(--bg-alt);border-right:1px solid var(--rule);}
+.flow li:last-child{border-right:0;}
+.flow li::before{content:counter(step);display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;margin-bottom:.45rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.8125rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.flow b{display:block;color:var(--ink);font-size:var(--fs-sm);letter-spacing:.04em;}
+.flow span{display:block;font-size:var(--fs-xs);color:var(--ink-2);line-height:1.75;margin-top:.2rem;}
+
+/* ---------- 会社概要 ---------- */
+.profile{background:var(--surface);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow);}
+.profile > div{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:.5rem clamp(16px,3vw,40px);padding:1.15rem clamp(20px,3vw,32px);border-bottom:1px solid var(--rule-2);}
+.profile > div:last-child{border-bottom:0;}
+.profile dt{font-weight:700;color:var(--ink-2);letter-spacing:.14em;font-size:.9375rem;}
+.profile dd{line-height:1.85;}
+.profile dd ul{display:grid;gap:.15rem;}
+.profile dd li{padding-left:1.1em;position:relative;}
+.profile dd li::before{content:"";position:absolute;left:.1em;top:.8em;width:.42em;height:.48em;background:var(--accent);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);}
+.profile .title{color:var(--ink-3);font-size:var(--fs-sm);margin-right:.7em;letter-spacing:.08em;}
+
+/* ---------- お問い合わせ ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;}
+.contact .sec-head{margin-bottom:0;}
+.mailbox{display:grid;gap:1rem;padding:clamp(22px,3vw,32px);background:var(--surface);border:1px solid var(--rule);border-radius:6px;}
+.mailbox__label{font-size:var(--fs-xs);letter-spacing:.16em;color:var(--ink-3);font-weight:700;}
+.mailbox__addr{font-family:var(--mono);font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:500;letter-spacing:0;word-break:break-all;line-height:1.5;}
+.mailbox__addr a{text-decoration:none;}
+.mailbox__addr a:hover{text-decoration:underline;}
+.mailbox__actions{display:flex;flex-wrap:wrap;gap:.6rem;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.7em 1.35em;border-radius:4px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-size:var(--fs-sm);font-weight:700;letter-spacing:.08em;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
+.btn:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:var(--accent-ink);}
+.btn--ghost{background:transparent;color:var(--accent);}
+.btn--ghost:hover{background:var(--accent-tint);color:var(--accent);border-color:var(--accent);}
+
+/* ---------- プライバシーポリシー ---------- */
+.policy{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.policy summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-family:var(--mincho);font-weight:700;font-size:1.0625rem;letter-spacing:.08em;}
+.policy summary::-webkit-details-marker{display:none;}
+.policy summary::after{content:"＋";font-family:var(--gothic);color:var(--ink-3);}
+.policy[open] summary::after{content:"－";}
+.policy__body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem clamp(24px,4vw,56px);padding-bottom:1.75rem;font-size:var(--fs-sm);color:var(--ink-2);}
+.policy__body > p:first-child{grid-column:1 / -1;}
+.policy__body h3{font-size:.9375rem;color:var(--ink);letter-spacing:.06em;margin-bottom:.25rem;}
+.policy__body .note{grid-column:1 / -1;}
+
+/* ---------- フッター ---------- */
+.site-foot{background:var(--foot-bg);color:var(--foot-ink);}
+.site-foot__in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem 3rem;padding-block:clamp(40px,6vw,56px) 1.75rem;}
+.site-foot .logo,.site-foot .logo:hover{color:var(--foot-ink);}
+.site-foot .mark{color:var(--foot-ink);}
+.site-foot address{font-style:normal;margin-top:.9rem;font-size:var(--fs-sm);color:var(--foot-ink-2);line-height:1.8;}
+.fnav{display:grid;grid-template-columns:repeat(2,auto);gap:.35rem 2.25rem;align-content:start;}
+.fnav a{color:var(--foot-ink);text-decoration:none;font-size:var(--fs-sm);letter-spacing:.06em;}
+.fnav a:hover{color:var(--foot-ink);text-decoration:underline;}
+.copy{grid-column:1 / -1;padding-top:1.4rem;border-top:1px solid var(--foot-rule);font-size:var(--fs-xs);color:var(--foot-ink-2);letter-spacing:.1em;}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width:980px){
+  .apps{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .flow li:nth-child(2){border-right:0;}
+  .flow li:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+}
+@media (max-width:860px){
+  .hero__in{grid-template-columns:minmax(0,1fr);}
+  .kikko{width:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 35%,#000 100%);mask-image:linear-gradient(to bottom,transparent 35%,#000 100%);}
+  .seg__head,.item{grid-template-columns:minmax(0,1fr);}
+  .item__head{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;}
+  .contact{grid-template-columns:minmax(0,1fr);}
+  .policy__body{grid-template-columns:minmax(0,1fr);}
+}
+@media (max-width:720px){
+  .site-head{position:static;}
+  html{scroll-padding-top:12px;}
+  .site-head__in{flex-wrap:wrap;gap:.25rem;padding-block:.75rem .5rem;}
+  .site-head .logo{width:100%;}
+  .gnav{width:100%;justify-content:space-between;margin-inline:-.85rem;width:calc(100% + 1.7rem);}
+  .gnav a{padding:.45rem .85rem;}
+  .gnav a.is-contact{margin-left:0;}
+  .apps{grid-template-columns:minmax(0,1fr);}
+  .profile > div{grid-template-columns:minmax(0,1fr);gap:.2rem;}
+  .site-foot__in{grid-template-columns:minmax(0,1fr);}
+}
+@media (max-width:480px){
+  .flow{grid-template-columns:minmax(0,1fr);}
+  .flow li{border-right:0;border-bottom:1px solid var(--rule);}
+  .flow li:last-child{border-bottom:0;}
+  .gnav a{font-size:.8125rem;padding-inline:.6rem;}
+}
+</style>
+
+<!-- 三つ盛亀甲（ロゴ） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="kikko-mark" viewBox="-16.3 -8.8 32.6 32.6">
+    <path fill="currentColor" d="M0,-8.8 L7.621,-4.4 L7.621,4.4 L0,8.8 L-7.621,4.4 L-7.621,-4.4Z M-8.66,6.2 L-1.039,10.6 L-1.039,19.4 L-8.66,23.8 L-16.281,19.4 L-16.281,10.6Z M8.66,6.2 L16.281,10.6 L16.281,19.4 L8.66,23.8 L1.039,19.4 L1.039,10.6Z"/>
+  </symbol>
+</svg>
+
+<header class="site-head">
+  <div class="wrap site-head__in">
+    <a class="logo" href="#top" aria-label="亀井商店合同会社 トップへ">
+      <svg class="mark" aria-hidden="true" focusable="false"><use href="#kikko-mark"/></svg>
+      <span class="logo__name">亀井商店合同会社</span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <a href="#business">事業内容</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact" class="is-contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ========== ヒーロー ========== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="kikko" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="kikko-pat" width="31.177" height="54" patternUnits="userSpaceOnUse">
+          <path fill="none" stroke="currentColor" stroke-width="1" d="M0.00,-18.00 L15.59,-9.00 L15.59,9.00 L0.00,18.00 L-15.59,9.00 L-15.59,-9.00Z M31.18,-18.00 L46.77,-9.00 L46.77,9.00 L31.18,18.00 L15.59,9.00 L15.59,-9.00Z M15.59,9.00 L31.18,18.00 L31.18,36.00 L15.59,45.00 L-0.00,36.00 L0.00,18.00Z M0.00,36.00 L15.59,45.00 L15.59,63.00 L0.00,72.00 L-15.59,63.00 L-15.59,45.00Z M31.18,36.00 L46.77,45.00 L46.77,63.00 L31.18,72.00 L15.59,63.00 L15.59,45.00Z"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#kikko-pat)"/>
+    </svg>
+
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <h1 id="hero-title">見えにくいものを、<br>見えるかたちに。</h1>
+        <p class="hero__lead">
+          亀井商店合同会社は、<strong>SNSを活用したマーケティング事業</strong>と、<strong>Webアプリケーション・ソフトウェアの企画・開発・運営</strong>をおこなう会社です。
+          商品レビューの信頼性、いま世界で起きている風景、企業のメール基盤、動画の中の言葉。見えにくい情報を、誰にでもわかるかたちにして届けています。
+        </p>
+        <dl class="hero__facts">
+          <div><dt>設立</dt><dd class="num">2023年7月</dd></div>
+          <div><dt>所在地</dt><dd>東京都渋谷区</dd></div>
+          <div><dt>代表社員</dt><dd>亀井 新太郎</dd></div>
+        </dl>
+      </div>
+
+      <nav class="biz-index" aria-label="事業の構成">
+        <p class="biz-index__label">事業の構成</p>
+        <a href="#marketing">
+          <span class="k">マーケティング事業</span>
+          <span class="v">SNSインフルエンサーマーケティング／クチコミマーケティングサイトの運営</span>
+          <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+        <a href="#webapps">
+          <span class="k">Webアプリサービス</span>
+          <span class="v">日本全国・世界のライブカメラマップ／メールサーバー判定ツール</span>
+          <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+        <a href="#software">
+          <span class="k">ソフトウェア開発</span>
+          <span class="v">動画の音声認識テロップ自動生成ツール</span>
+          <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ========== 事業内容 ========== -->
+  <section class="section" id="business" aria-labelledby="business-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="business-title">事業内容</h2>
+        <p>3つの事業を柱に、自社でサービスを企画・開発し、運営しています。</p>
+      </div>
+
+      <!-- マーケティング事業 -->
+      <section class="seg" id="marketing" aria-labelledby="seg-marketing">
+        <div class="seg__head">
+          <h3 class="seg__title" id="seg-marketing">マーケティング事業</h3>
+          <p class="seg__lead">SNSでの情報発信と、商品レビューを分析する情報サイトの運営を通じて、企業の商品・サービスと消費者をつないでいます。</p>
+        </div>
+
+        <div class="items">
+          <article class="item">
+            <div class="item__head">
+              <h4 class="item__name">SNS運用による<br>インフルエンサーマーケティング</h4>
+              <span class="chip chip--live">運営中</span>
+            </div>
+            <div class="item__body">
+              <p>自社で運用するSNSアカウント（X）を通じて、企業・ブランドの商品やサービスを紹介するPR投稿の企画・制作・投稿をおこなっています。</p>
+              <p>投稿には広告であることを明示する表記を付け、景品表示法のステルスマーケティング規制（2023年10月施行）に沿って運用しています。</p>
+              <dl class="facts">
+                <div><dt>運用媒体</dt><dd>X（フォロワー20万人超）</dd></div>
+                <div><dt>取引形態</dt><dd>企業・ブランドからのPR投稿の受託</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="item">
+            <div class="item__head">
+              <h4 class="item__name">クチコミマーケティング<br>サイトの運営</h4>
+            </div>
+            <div class="item__body">
+              <p>ECモールの商品レビューを公開情報から分析し、購入前の判断材料となる「レビューの信頼性の目安」を提示する情報サイトを運営しています。分析結果は推定であり、特定の販売者の不正を断定するものではありません。</p>
+              <div class="sites-wrap">
+                <table class="sites">
+                  <thead>
+                    <tr><th scope="col">サイト名</th><th scope="col">分析の対象</th><th scope="col">状況</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Sakura Radar<span>サクラレーダー</span></th>
+                      <td>Amazon.co.jp（日本）の商品レビュー</td>
+                      <td><span class="chip chip--prep">公開準備中</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Sakura Radar USA<span>サクラレーダー 米国版</span></th>
+                      <td>Amazon.com（米国）の商品レビュー</td>
+                      <td><span class="chip chip--dev">開発中</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Sakura Mieru<span>サクラミエル</span></th>
+                      <td>楽天市場の商品レビュー</td>
+                      <td><span class="chip chip--prep">公開準備中</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <dl class="facts">
+                <div><dt>収益形態</dt><dd>アフィリエイト広告（成果報酬型）</dd></div>
+              </dl>
+              <p class="note">公開準備中のサイトは、公開後にこのページへURLを掲載します。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Webアプリサービス -->
+      <section class="seg" id="webapps" aria-labelledby="seg-webapps">
+        <div class="seg__head">
+          <h3 class="seg__title" id="seg-webapps">Webアプリサービス</h3>
+          <p class="seg__lead">ブラウザだけで使えるWebアプリケーションを企画・開発し、無料で公開しています。いずれも現在公開中で、下のリンクから実際にお使いいただけます。</p>
+        </div>
+
+        <div class="apps">
+          <article class="app">
+            <a class="app__shot" href="https://kametaro7.github.io/japan-livecam-map/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/japan.jpg" width="960" height="698" alt="" decoding="async">
+            </a>
+            <div class="app__body">
+              <div class="app__head">
+                <h4 class="app__name">日本全国ライブカメラマップ</h4>
+                <span class="chip chip--live">公開中</span>
+              </div>
+              <p class="app__desc">全国のライブカメラ映像（YouTube配信）を地図にまとめ、その場で視聴できるWebアプリ。街・鉄道・空港・山・海などのカテゴリ検索や、複数カメラの同時表示に対応しています。</p>
+              <dl class="stats">
+                <div><dt>対応地域</dt><dd>47<span>都道府県</span></dd></div>
+                <div><dt>掲載カメラ</dt><dd>1,065<span>台</span></dd></div>
+              </dl>
+              <a class="url" href="https://kametaro7.github.io/japan-livecam-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr>japan-livecam-map</a>
+            </div>
+          </article>
+
+          <article class="app">
+            <a class="app__shot" href="https://kametaro7.github.io/world-livecam-map/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/world.jpg" width="960" height="702" alt="" decoding="async">
+            </a>
+            <div class="app__body">
+              <div class="app__head">
+                <h4 class="app__name">世界ライブカメラマップ</h4>
+                <span class="chip chip--live">公開中</span>
+              </div>
+              <p class="app__desc">世界各地のライブカメラを地図上で探して視聴できるWebアプリ。31言語の表示に対応し、複数画面の同時視聴やランダム再生の機能を備えています。</p>
+              <dl class="stats">
+                <div><dt>対応国・地域</dt><dd>112<span>か国</span></dd></div>
+                <div><dt>掲載カメラ</dt><dd>6,519<span>台</span></dd></div>
+                <div><dt>表示言語</dt><dd>31<span>言語</span></dd></div>
+              </dl>
+              <a class="url" href="https://kametaro7.github.io/world-livecam-map/" target="_blank" rel="noopener">kametaro7.github.io/<wbr>world-livecam-map</a>
+            </div>
+          </article>
+
+          <article class="app">
+            <a class="app__shot app__shot--top" href="https://kametaro7.github.io/mx-scope/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="img/mx.jpg" width="960" height="600" alt="" decoding="async">
+            </a>
+            <div class="app__body">
+              <div class="app__head">
+                <h4 class="app__name">メールサーバー判定ツール<small>MXスコープ</small></h4>
+                <span class="chip chip--live">公開中</span>
+              </div>
+              <p class="app__desc">ドメインやメールアドレスを入力するだけで、DNSの公開情報から利用中のメールサービス（Google Workspace、Microsoft 365 など）や、自社サーバー／クラウドの別を判定します。CSVによる一括判定に対応しています。</p>
+              <dl class="stats">
+                <div><dt>判定できるサービス</dt><dd>117<span>種</span></dd></div>
+                <div><dt>一括判定</dt><dd>CSV<span>対応</span></dd></div>
+              </dl>
+              <a class="url" href="https://kametaro7.github.io/mx-scope/" target="_blank" rel="noopener">kametaro7.github.io/<wbr>mx-scope</a>
+            </div>
+          </article>
+        </div>
+        <p class="note apps-note">掲載台数・対応数は2026年9月時点。画面はいずれも実際のサービスのものです。</p>
+      </section>
+
+      <!-- ソフトウェア開発 -->
+      <section class="seg" id="software" aria-labelledby="seg-software">
+        <div class="seg__head">
+          <h3 class="seg__title" id="seg-software">ソフトウェア開発</h3>
+          <p class="seg__lead">動画・音声処理の技術を活かしたソフトウェアを開発しています。</p>
+        </div>
+
+        <div class="items">
+          <article class="item">
+            <div class="item__head">
+              <h4 class="item__name">動画の音声認識<br>テロップ自動生成ツール</h4>
+              <span class="chip chip--dev">社内利用</span>
+            </div>
+            <div class="item__body">
+              <p>動画の発話を音声認識で文字起こしし、話している区間に合わせてテロップを自動で生成するソフトウェアです。編集画面で文言・位置・書体を整え、テロップを焼き込んだ動画として書き出します。処理はすべて端末内で完結し、動画を外部のサーバーへ送信しません。</p>
+              <ol class="flow" aria-label="処理の流れ">
+                <li><b>動画を読み込む</b><span>4K・HDRの動画にも対応</span></li>
+                <li><b>発話を文字起こし</b><span>話している区間を検出し、音声認識で文字に</span></li>
+                <li><b>テロップを生成・編集</b><span>区間に合わせて自動で割り付け、画面で調整</span></li>
+                <li><b>書き出す</b><span>テロップを焼き込んだ動画を出力</span></li>
+              </ol>
+              <dl class="facts">
+                <div><dt>名称</dt><dd>テロップメーカー</dd></div>
+                <div><dt>動作環境</dt><dd>macOS</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ========== 会社概要 ========== -->
+  <section class="section section--alt" id="company" aria-labelledby="company-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="company-title">会社概要</h2>
+      </div>
+      <dl class="profile">
+        <div><dt>商号</dt><dd>亀井商店合同会社</dd></div>
+        <div><dt>代表者</dt><dd><span class="title">代表社員</span>亀井 新太郎</dd></div>
+        <div><dt>設立</dt><dd class="num">令和5年（2023年）7月28日</dd></div>
+        <div><dt>所在地</dt><dd class="num">〒150-0043<br>東京都渋谷区道玄坂1丁目10番8号　渋谷道玄坂東急ビル2F-C</dd></div>
+        <div>
+          <dt>事業内容</dt>
+          <dd>
+            <ul>
+              <li>SNS運用によるインフルエンサーマーケティング</li>
+              <li>クチコミマーケティングサイトの企画・運営</li>
+              <li>Webアプリケーションの企画・開発・運営</li>
+              <li>ソフトウェアの企画・開発</li>
+            </ul>
+          </dd>
+        </div>
+        <div><dt>連絡先</dt><dd><a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ========== お問い合わせ ========== -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact">
+      <div class="sec-head">
+        <h2 id="contact-title">お問い合わせ</h2>
+        <p>事業内容・お取引・取材に関するお問い合わせは、右記のメールアドレスまでご連絡ください。内容を確認のうえ、担当者よりご返信いたします。</p>
+      </div>
+      <div class="mailbox">
+        <p class="mailbox__label">メールアドレス</p>
+        <p class="mailbox__addr" id="mail"><a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></p>
+        <div class="mailbox__actions">
+          <a class="btn" href="mailto:kamei@kameishouten.com">メールを作成する</a>
+          <button class="btn btn--ghost" type="button" data-copy="kamei@kameishouten.com">アドレスをコピー</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-bottom:clamp(48px,7vw,80px)">
+    <details class="policy" id="privacy">
+      <summary>プライバシーポリシー</summary>
+      <div class="policy__body">
+        <p>亀井商店合同会社（以下「当社」）は、お問い合わせ等を通じてお預かりする個人情報を、以下のとおり取り扱います。</p>
+        <div>
+          <h3>取得する情報</h3>
+          <p>お問い合わせのメールに記載された氏名、会社名、メールアドレス、お問い合わせ内容など、お客様ご自身が提供された情報。</p>
+        </div>
+        <div>
+          <h3>利用目的</h3>
+          <p>お問い合わせへの回答、お取引に関するご連絡、およびこれらに付随する業務のために利用し、それ以外の目的では利用しません。</p>
+        </div>
+        <div>
+          <h3>第三者への提供</h3>
+          <p>法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません。</p>
+        </div>
+        <div>
+          <h3>安全管理と保管</h3>
+          <p>取得した情報は適切に管理し、利用目的の達成に必要な期間を過ぎたものは速やかに削除します。</p>
+        </div>
+        <div>
+          <h3>開示・訂正・削除のご請求</h3>
+          <p>ご本人からのご請求に応じ、保有する個人情報の開示・訂正・利用停止・削除をおこないます。</p>
+        </div>
+        <div>
+          <h3>お問い合わせ窓口</h3>
+          <p>亀井商店合同会社　<a href="mailto:kamei@kameishouten.com">kamei@kameishouten.com</a></p>
+        </div>
+        <p class="note">2026年9月 制定</p>
+      </div>
+    </details>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__in">
+    <div>
+      <a class="logo" href="#top">
+        <svg class="mark" aria-hidden="true" focusable="false"><use href="#kikko-mark"/></svg>
+        <span class="logo__name">亀井商店合同会社</span>
+      </a>
+      <address>〒150-0043 東京都渋谷区道玄坂1丁目10番8号<br>渋谷道玄坂東急ビル2F-C</address>
+    </div>
+    <nav class="fnav" aria-label="フッターメニュー">
+      <a href="#business">事業内容</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#privacy">プライバシーポリシー</a>
+    </nav>
+    <p class="copy">© 亀井商店合同会社</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // メールアドレスのコピー（クリップボードが使えない環境では文字を選択状態にする）
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var label = btn.textContent;
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      function done(msg) {
+        btn.textContent = msg;
+        setTimeout(function () { btn.textContent = label; }, 2400);
+      }
+      function selectFallback() {
+        var el = document.getElementById("mail");
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        done("選択しました（⌘C でコピー）");
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done("コピーしました"); }, selectFallback);
+      } else {
+        selectFallback();
+      }
+    });
+  });
+
+  // フッターのリンクからプライバシーポリシーへ来たときは開いた状態にする
+  function openPolicy() {
+    if (location.hash === "#privacy") {
+      var d = document.getElementById("privacy");
+      if (d) d.open = true;
+    }
+  }
+  window.addEventListener("hashchange", openPolicy);
+  document.querySelectorAll('a[href="#privacy"]').forEach(function (a) {
+    a.addEventListener("click", function () {
+      var d = document.getElementById("privacy");
+      if (d) d.open = true;
+    });
+  });
+  openPolicy();
+})();
+</script>
+</body>
+</html>
