@@ -136,7 +136,7 @@
   // ---------- 地図 ----------
   let mapStyle = store.get('mapStyle', 'light');
   if (!MAP_STYLES[mapStyle]) mapStyle = 'light';
-  try { maplibregl.setRTLTextPlugin('https://cdn.jsdelivr.net/npm/@mapbox/mapbox-gl-rtl-text@0.3.0/dist/mapbox-gl-rtl-text.js', true); } catch (e) { /* 任意 */ }
+  // アラビア文字などの右から左の文字は MapLibre 6.9 以降が自前で描くので、RTL プラグイン（setRTLTextPlugin は非推奨）は読み込まない
   const map = new maplibregl.Map({
     container: 'map', style: MAP_STYLES[mapStyle], center: [12, 28], zoom: isMobile() ? 0.8 : 1.7, minZoom: 0.5, maxZoom: 18,
     attributionControl: { compact: true }, dragRotate: false, pitchWithRotate: false, fadeDuration: 150,
