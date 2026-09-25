@@ -7,7 +7,7 @@
 <meta name="description" content="Tens of thousands of YouTube live cameras from around the world on one map. Watch 4, 9 or 16 at once, or shuffle them all at random.">
 <meta name="theme-color" content="#0f1115">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23e5322d'/%3E%3Cpath d='M16 4a12 12 0 1 0 .01 0M4 16h24M16 4c-4 4-4 20 0 24M16 4c4 4 4 20 0 24' stroke='white' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.24.0/maplibre-gl.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.css">
 <link rel="stylesheet" href="assets/style.css?v=2">
 </head>
 <body>
@@ -111,9 +111,14 @@
 
 <div id="toast" class="toast" role="status" hidden></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/5.24.0/maplibre-gl.js"></script>
-<script src="assets/i18n/en.js?v=2"></script>
-<script src="assets/app.js?v=2"></script>
+<!-- MapLibre GL 6 は ES モジュール版だけ（cdnjs には CSS しか無いので jsDelivr の npm 配信）。window.maplibregl に置き、
+     下の defer のスクリプトから使う（type="module" と defer はこの並び順で、HTML の解析後に実行される） -->
+<script type="module">
+  import * as maplibregl from 'https://cdn.jsdelivr.net/npm/maplibre-gl@6.11.2/dist/maplibre-gl.mjs';
+  window.maplibregl = maplibregl;
+</script>
+<script src="assets/i18n/en.js?v=2" defer></script>
+<script src="assets/app.js?v=2" defer></script>
 <!-- Cloudflare Web Analytics（Cookie を使わないアクセス解析。"spa": false = カメラを開くたびの URL 変更は閲覧数に数えない） -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "efcc1db2ce1f43d9bb0521f2fc57a4b0", "spa": false}'></script>
 <!-- End Cloudflare Web Analytics -->
